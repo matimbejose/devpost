@@ -37,9 +37,7 @@ export default function Home() {
 
     })
 
-    console.log(user.id);
 
-    //
     return () => subscriber();
 
   }, []);
@@ -60,7 +58,7 @@ export default function Home() {
         <ListPosts
         showsVerticalIndicator={false}
         data={posts}
-        renderItem={ ({item}) => <PostsList data={item}  userId={user.id} /> }
+        renderItem={ ({item}) => <PostsList data={item}  userId={user.uid} /> }
         />
       )
       }

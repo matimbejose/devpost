@@ -20,38 +20,42 @@ export default function PostsList({ data, userId }) {
       )
 
     }
-
-    async function likePost(id, like){
+    async function likePost(id, likes){
         const docId = `${userId}_${id}`;
 
-        //verificando se o post foi curtido para  deletar like
-        const doc = await  firestore().collection('likes')
+        //Checar se o post já foi curtido
+        const doc = await firestore().collection('likes')
         .doc(docId).get();
 
-        if(doc.exists) {
-             await firestore().collection('posts')
-             .doc(id).update({
-                like: like -1,
-             })
+        if(doc.exists){
+            //Quer dizer que ele já curtiu esse post
+            await firestore().collection('posts')
+            .doc(id).update({
+                like: likes - 1
+            })
 
-             await firestore().collection('likes')
-             .doc(docId).delete();
-             return
+            await firestore().collection('likes')
+            .doc(docId).delete();
+            return;
         }
 
-        //para colocar linke
+        //Criar o like dele no post
         await firestore().collection('likes')
         .doc(docId).set({
             postId: id,
-            userId: userId,
+            userId: userId, 
         })
 
-        //somando mais um like no post 
+        //Somar + 1 like no post
         await firestore().collection('posts')
         .doc(id).update({
-            like: like + 1
-        })
+            like: likes + 1
+        });
+
+
+
     }
+
 
  return (
     <Container>
