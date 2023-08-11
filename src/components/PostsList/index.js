@@ -4,8 +4,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale'
 import  firestore  from '@react-native-firebase/firestore';
+import { useNavigation  } from '@react-navigation/native';
+
 
 export default function PostsList({ data, userId }) {
+    const navigation = useNavigation();
 
     function formatTimePost() {
         //convertendo  timespanp  para data
@@ -24,6 +27,7 @@ export default function PostsList({ data, userId }) {
         const docId = `${userId}_${id}`;
 
         //Checar se o post já foi curtido
+        like: likes - 1
         const doc = await firestore().collection('likes')
         .doc(docId).get();
 
@@ -31,7 +35,6 @@ export default function PostsList({ data, userId }) {
             //Quer dizer que ele já curtiu esse post
             await firestore().collection('posts')
             .doc(id).update({
-                like: likes - 1
             })
 
             await firestore().collection('likes')
@@ -59,7 +62,7 @@ export default function PostsList({ data, userId }) {
 
  return (
     <Container>
-        <Header>
+        <Header onPress={ () => navigation.navigate("PostsUser", { title: data.autor , userId: data.userId}) }>
 
             {
                 data.avatarUrl ? 

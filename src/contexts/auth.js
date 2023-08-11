@@ -91,8 +91,6 @@ export default function AuthProvider( { children } ) {
 
   async function storageUser(data) {
     await AsyncStorage.setItem('devApp', JSON.stringify(data))
-
-    console.log("save data on mobile dive....")
   }
 
 
@@ -113,7 +111,9 @@ export default function AuthProvider( { children } ) {
       signIn,
       signOut,
       loadingAuth,
-      loading
+      loading,
+      storageUser,
+      setUser
     }}
     >
         { children }
