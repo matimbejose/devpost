@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { View,Text, ActivityIndicator } from 'react-native';
-import { Container,Input,Title,Button,ButtonText, SignUpButton, SignUpText } from './styles'
-
+import { Container,Input,Title,Button,ButtonText, SignUpButton, SignUpText } from './styles';
 import {  AuthContext } from '../../contexts/auth';
+import *  as Animatable from 'react-native-animatable';
+
+
+const TitleAnimated = Animatable.createAnimatableComponent(Title);
 
 
 
@@ -45,10 +48,10 @@ function handleSignUp() {
   if(login) {
     return(
     <Container>
-      <Title>
+      <TitleAnimated animation="flipInY"> 
         Dev
         <Text style={{ color: '#e52246'}}>Post</Text>
-        </Title>
+        </TitleAnimated>
 
         <Input 
         placeholder="email@email.com"
@@ -84,10 +87,10 @@ function handleSignUp() {
 
  return (
   <Container>
-  <Title>
+  <TitleAnimated animation="fadeInDown">
     Dev
     <Text style={{ color: '#e52246'}}>Post</Text>
-    </Title>
+    </TitleAnimated>
 
 
     <Input 

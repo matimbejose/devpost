@@ -1,5 +1,5 @@
 Arguments: 
-  /home/matimbejose/.nvm/versions/node/v14.20.0/bin/node /usr/local/bin/yarn add react-native-community/async-storege@1.12.0
+  /home/matimbejose/.nvm/versions/node/v14.20.0/bin/node /usr/local/bin/yarn add @react-native-animatable@1.3.3
 
 PATH: 
   /home/matimbejose/.nvm/versions/node/v14.20.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/matimbejose/Android/Sdk/tools:/home/matimbejose/Android/Sdk/platform-tools
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-native-community%2fasync-storege: Request "https://registry.yarnpkg.com/react-native-community%2fasync-storege" returned a 405
+  Error: https://registry.yarnpkg.com/@react-native-animatable: Request "https://registry.yarnpkg.com/@react-native-animatable" returned a 405
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66154:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (events.js:400:28)
@@ -37,6 +37,7 @@ npm manifest:
       "web": "expo start --web"
     },
     "dependencies": {
+      "@react-native-community/async-storage": "1.12.0",
       "@react-native-community/masked-view": "^0.1.11",
       "@react-native-firebase/app": "8.4.1",
       "@react-native-firebase/auth": "9.2.1",
@@ -45,12 +46,15 @@ npm manifest:
       "@react-navigation/bottom-tabs": "5.8.0",
       "@react-navigation/native": "^5.7.3",
       "@react-navigation/stack": "5.9.0",
+      "date-fns": "2.16.1",
       "expo": "~48.0.18",
+      "expo-permissions": "~14.1.1",
       "expo-splash-screen": "~0.18.2",
       "expo-status-bar": "~1.4.4",
       "react": "18.2.0",
       "react-native": "0.71.8",
       "react-native-gesture-handler": "~2.9.0",
+      "react-native-image-picker": "2.3.3",
       "react-native-reanimated": "~2.14.4",
       "react-native-safe-area-context": "4.5.0",
       "react-native-screens": "~3.20.0",
@@ -1758,6 +1762,13 @@ Lockfile:
       mkdirp "^1.0.4"
       rimraf "^3.0.2"
   
+  "@react-native-community/async-storage@1.12.0":
+    version "1.12.0"
+    resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.0.tgz#d2fc65bc08aa1c3e9514bbe9fe7095eab8e8aca3"
+    integrity sha512-y3zVxuVyiOxI8TXrvajmYfDbIt2vFNxzV5MiA28v15DQTxDk6uJH3rpc9my+la7u2Tiwt3PpdU2+59ZgZ4h7wA==
+    dependencies:
+      deep-assign "^3.0.0"
+  
   "@react-native-community/cli-clean@^10.1.1":
     version "10.1.1"
     resolved "https://registry.yarnpkg.com/@react-native-community/cli-clean/-/cli-clean-10.1.1.tgz#4c73ce93a63a24d70c0089d4025daac8184ff504"
@@ -3104,6 +3115,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/dag-map/-/dag-map-1.0.2.tgz#e8379f041000ed561fc515475c1ed2c85eece8d7"
     integrity sha512-+LSAiGFwQ9dRnRdOeaj7g47ZFJcOUPukAP8J3A3fuZ1g9Y44BG+P1sgApjLXTQPOzC4+7S9Wr8kXsfpINM4jpw==
   
+  date-fns@2.16.1:
+    version "2.16.1"
+    resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+    integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
+  
   dayjs@^1.8.15:
     version "1.11.9"
     resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.9.tgz#9ca491933fadd0a60a2c19f6c237c03517d71d1a"
@@ -3139,6 +3155,13 @@ Lockfile:
     version "0.2.2"
     resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
     integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
+  
+  deep-assign@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/deep-assign/-/deep-assign-3.0.0.tgz#c8e4c4d401cba25550a2f0f486a2e75bc5f219a2"
+    integrity sha512-YX2i9XjJ7h5q/aQ/IM9PEwEnDqETAIYbggmdDB3HLTlSgo1CxPsj6pvhPG68rq6SVE0+p+6Ywsm5fTYNrYtBWw==
+    dependencies:
+      is-obj "^1.0.0"
   
   deep-extend@^0.6.0:
     version "0.6.0"
@@ -3460,6 +3483,11 @@ Lockfile:
     dependencies:
       compare-versions "^3.4.0"
       invariant "^2.2.4"
+  
+  expo-permissions@~14.1.1:
+    version "14.1.2"
+    resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-14.1.2.tgz#59ccf152d5da44b4958fc45238595b1b4282a978"
+    integrity sha512-NcozPs0cPDe65/Kc7yhSbdGcdpEIeEK1VcUlhRmOrC3kEahwlIdmyLdfhtuuUggaB75Wlo7VOGMZrsNHTWOVHw==
   
   expo-splash-screen@~0.18.2:
     version "0.18.2"
@@ -4252,6 +4280,11 @@ Lockfile:
     version "7.0.0"
     resolved "https://registry.yarnpkg.com/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
     integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
+  
+  is-obj@^1.0.0:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
+    integrity sha512-l4RyHgRqGN4Y3+9JHVrNqO+tN0rV5My76uW5/nuO4K1b6vw5G8d/cmFjP9tRfEsdhZNt0IFdZuK/c2Vr4Nb+Qg==
   
   is-path-cwd@^2.2.0:
     version "2.2.0"
@@ -5971,6 +6004,11 @@ Lockfile:
     version "0.71.19"
     resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.19.tgz#3379e28341fcd189bc1f4691cefc84c1a4d7d232"
     integrity sha512-1dVk9NwhoyKHCSxcrM6vY6cxmojeATsBobDicX0ZKr7DgUF2cBQRTKsimQFvzH8XhOVXyH8p4HyDSZNIFI8OlQ==
+  
+  react-native-image-picker@2.3.3:
+    version "2.3.3"
+    resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.3.tgz#eaacd4a1ed9e9887613be31f0765478ca2f18a51"
+    integrity sha512-i/7JDnxKkUGSbFY2i7YqFNn3ncJm1YlcrPKXrXmJ/YUElz8tHkuwknuqBd9QCJivMfHX41cmq4XvdBDwIOtO+A==
   
   react-native-iphone-x-helper@^1.2.1:
     version "1.3.1"

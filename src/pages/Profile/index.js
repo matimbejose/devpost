@@ -47,11 +47,9 @@ export default function Profile() {
     storageUser(data);
     setUser(data);
     setOpen(false);
-
-
-
   }
 
+  
   const uploadFile = () => {
     const options = {
       noData: true,
@@ -59,6 +57,8 @@ export default function Profile() {
     };
 
     ImagePicker.launchImageLibrary(options, response => {
+      console.log(response);
+      console.log(options);
       if(response.didCancel){
         console.log('CANCELOU O MODAL.');
       }else if(response.error){
@@ -71,8 +71,21 @@ export default function Profile() {
       }
 
     })
-
   }
+
+  // const checkPermissionsAndUpload = async () => {
+  //   const { status } = await PermissionsAndroid.askAsync(PermissionsAndroid.MEDIA_LIBRARY);
+  
+  //   if (status === 'granted') {
+  //     // Permissão concedida, agora você pode chamar o uploadFile
+  //     uploadFile();
+  //   } else {
+  //     // Permissão não concedida
+  //     console.log('Permissão para acessar a galeria foi negada.');
+  //   }
+  // };
+  
+  
 
 
 
@@ -126,7 +139,7 @@ export default function Profile() {
 
 
       <Modal visible={open} animationType="slide" transparent={true}>
-        <ModalContainer>
+        <ModalContainer behavior={ Platform.OS =='android' ?  '': 'padding' }>
           <ButtonBack onPress={ () => setOpen(false) }>
           <AntDesign 
             name="arrowleft" 

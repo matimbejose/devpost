@@ -64,7 +64,7 @@ font-size: 20px;
 color: ${props => props.color};
 font-style: italic;
 `
-export  const ModalContainer = styled.View`
+export  const ModalContainer = styled.KeyboardAvoidingView`
 width: 100%;
 height: 70%;
 background-color: #FFF;

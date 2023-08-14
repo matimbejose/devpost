@@ -29,6 +29,7 @@ function StackScreen() {
             name="NewPost"
             component={NewPost}
             options={{
+                title: 'Novo Post',
                 headerTintColor: '#FFF',
                 headerStyle: {
                     backgroundColor: '#36393F'
